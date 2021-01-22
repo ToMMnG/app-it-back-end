@@ -1,24 +1,27 @@
-[![forthebadge](https://forthebadge.com/images/badges/made-with-javascript.svg)](https://forthebadge.com)
-
-# node-auth-mongo
-____
-Node(Express), MongoDB based app with Authentication Boilerplate.\
-It can be used to get started with any project to have JWT authentication.
-
-
 ## How to install
 
 1. clone the repo
 2. run `npm install`
-3. create `.env` file as given in `.env.example`
-4. run `npm run dev`
+3. replace `.env.example` file with `.env`
+4. run `npm run start `
 
-### Boilerplate includes
+### for docker
 
-- [x] Server with Express.js
-- [x] Database schema and models using Mongoose ORM.
-- [x] User authentication with JWT.
-- [x] Eslint for coding patterns/standards.
-- [x] Prettier for code styling.
-- [x] Request validation using Express-validator.
-- [x] Morgan and Winston for server side logging.
+1. run `docker build --tag nodename/weather-service`
+2. run `docker run -p 3001:3000 -d nodename/weather-service`
+3. After the container is up, to check the weather API you need to first register as a user. `http:// www.localhost.3001/api/auth/signup` with body e.g. 
+{
+    "username": "tom",
+    "email": "test@email.com",
+    "first_name": "jon",
+    "last_name": "doe",
+    "password": "123123" 
+}
+4. When signup is success, login with `http://www.localhost.3001/api/auth/login` and capture the response access token with the body of:
+{
+    "email": "test@email.com",
+    "password": "123123"
+}
+
+5. To get weather data, go to `http://www.localhost.3001/api/weather/getAllWeatherData`
+
