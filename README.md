@@ -23,5 +23,5 @@
     "password": "123123"
 }
 
-5. To get weather data, go to `http://www.localhost.3001/api/weather/getAllWeatherData`
+5. To get weather data, go to `http://www.localhost.3001/api/weather/getAllWeatherData` with bearer token from login response
 
